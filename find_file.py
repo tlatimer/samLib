@@ -22,6 +22,8 @@ def find_file(filename_prefix):
     files.sort(key=getmtime, reverse=True)
 
     modified_time = datetime.fromtimestamp(getmtime(files[0])).strftime('%Y/%m/%d %a %H:%M:%S')
-    logging.debug(f'Using {files[0]}: modified {modified_time}')
-    # print(f'Using {files[0]}: modified {modified_time}')
+
+    msg = f'Using {files[0]}: modified {modified_time}'
+    # logging.debug(msg)
+    # print(msg)
     return files[0]

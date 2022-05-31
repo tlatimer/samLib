@@ -6,8 +6,6 @@ FILE_SETTINGS = {
     'backupCount': 8,
 }
 
-#######################################################################################################################
-
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
@@ -28,7 +26,6 @@ ch.setFormatter(formatter)
 # add the handlers to the logger
 logger.addHandler(fh)
 logger.addHandler(ch)
-
 
 # logging.debug('fdsa')
 logging.info('Logging Started')

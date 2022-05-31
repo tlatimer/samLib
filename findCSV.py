@@ -7,6 +7,7 @@ DELIMITER = ','
 
 def find_csv(minimum_headers, folder='C:\\Users\\*\\Downloads', f_name='*.csv'):
     minimum_headers_set = set(minimum_headers)
+
     if len(minimum_headers) > len(minimum_headers_set):
         raise Exception('minimum_headers are not unique')
 
