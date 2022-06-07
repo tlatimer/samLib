@@ -2,8 +2,6 @@ import time
 from glob import glob
 from os import path
 
-DELIMITER = ','
-
 
 def find_csv(minimum_headers, folder='C:\\Users\\*\\Downloads', f_name='*.csv'):
     minimum_headers_set = set(minimum_headers)
@@ -25,9 +23,15 @@ def find_csv(minimum_headers, folder='C:\\Users\\*\\Downloads', f_name='*.csv'):
         with open(file, 'r') as f:
             header = f.readline()
             header = header.strip()
-            header = header.split(DELIMITER)
 
-            header_set = set(header)
+            header_commas = header.split(',')
+            header_tabs = header.split('\t')
+
+            if len(header_commas) > len(header_tabs):
+                header_set = set(header_commas)
+            else:
+                header_set = set(header_tabs)
+
             # if len(header) > len(header_set):
             #     print(f'{file}\t has duplicate fields in the header. Skipping...')
 
@@ -37,6 +41,3 @@ def find_csv(minimum_headers, folder='C:\\Users\\*\\Downloads', f_name='*.csv'):
                 return file
 
     raise Exception(f"no csv found with valid header in {pattern}")
-
-
-find_csv(['Transaction Date'])

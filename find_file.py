@@ -1,4 +1,3 @@
-import logging
 from datetime import datetime
 from os.path import getmtime
 from glob import glob
@@ -23,7 +22,5 @@ def find_file(filename_prefix):
 
     modified_time = datetime.fromtimestamp(getmtime(files[0])).strftime('%Y/%m/%d %a %H:%M:%S')
 
-    msg = f'Using {files[0]}: modified {modified_time}'
-    # logging.debug(msg)
-    # print(msg)
+    print(f'Using {files[0]}: modified {modified_time}')
     return files[0]
